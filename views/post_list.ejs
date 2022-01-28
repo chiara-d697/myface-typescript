@@ -5,11 +5,23 @@
 <h1>Posts</h1>
 <ol>
     <% results.forEach(function(post) {%>
-        <li>
+        <li style="font-size: 20px; font-weight: bold;">
             <%= post.message %>
         </li>
+        <li>
+            Posted on <%= post.createdAt %> by <%= post.postedBy.name %>
+        </li>
+        <li>
+            <%= post.likedBy.length %> likes | <%= post.dislikedBy.length %> dislikes
+        </li>
+        <li>
+        <img src="<%= post.imageUrl %>" alt="Post image" />
+        </li>
+        <br /><br />
+                
     <% }); %>
 </ol>
+
 </body>
 <%- include('_footer') -%>
 </html>
