@@ -5,25 +5,31 @@
 <h1>Users</h1>
 <ul>
     <% results.forEach(function(user) {%>
-        <li>
-            Name: <%= user.name %>
-        </li>
-        <li>
-            Username: <%= user.username %>
-        </li>
-        <li>
-            <a href="/users/<%=user.id%>">
-            <img src="<%=user.profileImageUrl%>" alt="User profile image" />
-            </a>
-        </li>
+        <section class="user-block">
+            <li>
+                <a href="/users/<%=user.id%>">
+                    <img class="profile-image"src="<%=user.profileImageUrl%>" alt="User profile image" width="50" height="50"/>
+                </a>
+            </li>
+            <li>
+                Name: <%= user.name %>
+            </li>
+            <li>
+                Username: <%= user.username %>
+            </li>
+        </section>
+
+
     <% }); %>
 </ul>
+
 <%if (next) { %>
-    <a href="<%= next %>">Next</a>
+    <button><a href="<%= next %>">Next</a></button>
 <% } %>
 <%if (previous) { %>
-    <a href="<%= previous %>">Previous</a>
+    <button><a href="<%= previous %>">Next</a></button>
 <% } %>
+
 </body>
 <%- include('_footer') -%>
 </html>
