@@ -2,7 +2,7 @@
 <%- include('_head') -%>
 <%- include('_header') -%>
 <body>
-<h1>Posts</h1>
+<h1 id="post-title">Posts</h1>
 <ol>
     <% results.forEach(function(post) {%>
         <section class = "post-block">
@@ -24,6 +24,8 @@
                 
     <% }); %>
 </ol>
+
+<button type="button" onclick="addPostColour()">Colourfy Posts</button>
 
 <%if (next) { %>
     <button><a href="<%= next %>">Next</a></button>

@@ -2,19 +2,34 @@
 <%- include('_head') -%>
 <%- include('_header') -%>
 <body>
-    <section class="cover-container">
-        <img class="cover-pic"src="<%= coverImageUrl %>" alt="<%= name %>" width="50" height="50"/>
+    <section class="card-container">
+        <section class="cover-container">
+            <img class="cover-pic"src="<%= coverImageUrl %>" alt="<%= name %>" width="50" height="50"/>
+        </section>
+
+        <section class="profile-container">
+            <img class="profile-pic" src="<%= profileImageUrl %>" alt="<%= name %>" width="50" height="50"/>
+        </section>
+
+        <section class="details-container">
+            <p class="name"><%= name %></p>
+            <p class="username"><%= username %></p>
+            <p class="email"><%= email %></p></section>
+        </section>
     </section>
 
-    <section class="profile-container">
-        <img class="profile-pic" src="<%= profileImageUrl %>" alt="<%= name %>" width="50" height="50"/>
-    </section>
 
-    <section class="details-container">
-        <p class="name"><%= name %></p>
-        <p class="username"><%= username %></p>
-        <p class="email"><%= email %></p></section>
-    </section>
+    <ol class = "post-list">
+        <% posts.forEach(function(post) {%>
+            <li class = "post">
+                <img class = "post-image" src=<%= post.imageUrl %> alt = "Posted Image" height = "150" width = "150" />
+                <!-- <p>Id: <%= post.id %></p>  -->
+                <p class = "post-posted-by"><%= username %> </p> 
+                <p class = "post-date"> <%= post.createdAt %></p> 
+                <p class = "post-message"><%= post.message %></p> 
+            </li>
+        <% }); %>
+    </ol>
 
 
  
